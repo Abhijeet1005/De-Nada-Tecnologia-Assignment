@@ -1,0 +1,24 @@
+import express from "express";
+import dotenv from "dotenv";
+
+//cors not implemented intentionally
+
+dotenv.config({
+    path: "./.env"
+});
+
+const app = express();
+
+app.use(express.json());
+app.get("/",(req,res) => {
+    res.status(200).send("Healthy")
+})
+
+//Routers import and use
+import billRouter from "./routes/bill.route.js";
+app.use("/api/v1/bill",billRouter);
+
+import itemRouter from "./routes/item.route.js";
+app.use("/api/v1/item",itemRouter);
+
+export {app}
