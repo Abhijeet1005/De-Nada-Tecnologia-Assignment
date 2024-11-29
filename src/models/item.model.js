@@ -19,6 +19,7 @@ const itemSchema = new mongoose.Schema({
     category: {
         type: String,
         enum: ["Stationary","Grocery","Electronics","Other"],
+        default: "Other"
     },
 }, {timestamps: true});
 
