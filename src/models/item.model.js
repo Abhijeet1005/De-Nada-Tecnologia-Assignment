@@ -14,7 +14,8 @@ const itemSchema = new mongoose.Schema({
     },
     quantity: {
         type: Number,
-        required: true
+        required: true,
+        min: [1, "Item count must be at least 1"]
     },
     category: {
         type: String,
