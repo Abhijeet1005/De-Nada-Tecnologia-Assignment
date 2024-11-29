@@ -58,14 +58,11 @@ export const updateItem = asyncHandler(async (req, res, next) => {
     res.status(200).json(new ApiResponse(200, "Item updated successfully", item));
 });
 
-
-
 export const deleteItem = asyncHandler(async (req, res, next) => {
     const { id } = req.query;
-    const item = await Item.findById(id);
+    const item = await Item.findByIdAndDelete(id,{new:true});
     if (!item) {
         throw new ApiError(404, "Item not found");
     }
-    await item.remove();
-    res.status(200).json(new ApiResponse(200, "Item deleted successfully"));
+    res.status(200).json(new ApiResponse(200, "Item deleted successfully", item));
 });
