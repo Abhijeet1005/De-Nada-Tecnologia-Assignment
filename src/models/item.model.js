@@ -17,7 +17,7 @@ const itemSchema = new mongoose.Schema({
         required: true
     },
     category: {
-        type: string,
+        type: String,
         enum: ["Stationary","Grocery","Electronics","Other"],
     },
 }, {timestamps: true});
