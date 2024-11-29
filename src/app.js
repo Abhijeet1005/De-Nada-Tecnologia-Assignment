@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import errorHandler from "./middlewares/errorHandler.middleware.js";
 
 //cors not implemented intentionally
 
@@ -20,5 +21,7 @@ app.use("/api/v1/bill",billRouter);
 
 import itemRouter from "./routes/item.route.js";
 app.use("/api/v1/item",itemRouter);
+
+app.use(errorHandler)
 
 export {app}
