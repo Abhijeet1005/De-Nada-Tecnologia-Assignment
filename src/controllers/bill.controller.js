@@ -31,14 +31,24 @@ export const getBillById = asyncHandler(async (req, res, next) => {
 export const updateBill = asyncHandler(async (req, res, next) => {
     const { id } = req.query;
     const { billItems } = req.body;
-    const bill = await Bill.findById(id);
-    if (!bill) {
+
+    if (!Array.isArray(billItems) || billItems.length === 0) {
+        throw new ApiError(400, "Invalid bill items format. It must be an array with at least one item.");
+    }
+
+    const updatedBill = await Bill.findByIdAndUpdate(
+        id,
+        { $set: { billItems } }, 
+        { new: true, runValidators: true } 
+    );
+
+    if (!updatedBill) {
         throw new ApiError(404, "Bill not found");
     }
-    bill.billItems = billItems;
-    await bill.save();
-    res.status(200).json(new ApiResponse(200, "Bill updated successfully", bill));
+
+    res.status(200).json(new ApiResponse(200, "Bill updated successfully", updatedBill));
 });
+
 
 export const deleteBill = asyncHandler(async (req, res, next) => {
     const { id } = req.query;

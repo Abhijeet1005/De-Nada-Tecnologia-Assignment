@@ -37,19 +37,28 @@ export const createItem = asyncHandler(async (req, res, next) => {
 
 export const updateItem = asyncHandler(async (req, res, next) => {
     const { id } = req.query;
-    const { name, description, price, quantity, category } = req.body;
-    const item = await Item.findById(id);
+
+    const update = {};
+    for (const key of Object.keys(req.body)) {
+        if (req.body[key] !== '' && req.body[key] !== undefined) {
+            update[key] = req.body[key];
+        }
+    }
+
+    const item = await Item.findByIdAndUpdate(
+        id,
+        { $set: update }, 
+        { new: true, runValidators: true } 
+    );
+
     if (!item) {
         throw new ApiError(404, "Item not found");
     }
-    item.name = name;
-    item.description = description;
-    item.price = price;
-    item.quantity = quantity;
-    item.category = category;
-    await item.save();
+
     res.status(200).json(new ApiResponse(200, "Item updated successfully", item));
 });
+
+
 
 export const deleteItem = asyncHandler(async (req, res, next) => {
     const { id } = req.query;
