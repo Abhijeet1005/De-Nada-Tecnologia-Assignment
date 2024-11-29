@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "8edfe19d-29c8-450c-8af1-3820aa2f178f",
+		"name": "De-Nada assignment postman collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28309338",
+		"_collection_link": "https://grey-spaceship-381861.postman.co/workspace/New-Team-Workspace~1b39da11-7066-4f51-9bdc-64e5794aff73/collection/28309338-8edfe19d-29c8-450c-8af1-3820aa2f178f?action=share&source=collection_link&creator=28309338"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all items",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/item/getAllItems",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"getAllItems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get items by id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/item/getItemById?id=674a00fa23b667b9305355bd",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"getItemById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "674a00fa23b667b9305355bd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "RTX 3060",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A gpu from Nvidia",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "30000",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Electronics",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/item/createItem",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"createItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "32000",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/item/updateItem?id=674a02398db8be63f3bb202a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"updateItem"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "674a02398db8be63f3bb202a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/item/deleteItem?id=6749e9782ca72038b1d92f22",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"deleteItem"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6749e9782ca72038b1d92f22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create bill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "billItems",
+							"value": "[{\"item\": \"674a00fa23b667b9305355bd\",\"count\": 2},{\"item\": \"674a02398db8be63f3bb202a\",\"count\": 1}]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/bill/createBill",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"bill",
+						"createBill"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all bills",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/bill/getAllBills",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"bill",
+						"getAllBills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get bill by id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/bill/getBillById?id=6749ea1fbae21f1b9a70f5c2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"bill",
+						"getBillById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6749ea1fbae21f1b9a70f5c2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update bill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "billItems",
+							"value": "[{\"item\": \"6749e9782ca72038b1d92f22\",\"count\": 1}]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/bill/updateBill?id=6749ea1fbae21f1b9a70f5c2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"bill",
+						"updateBill"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6749ea1fbae21f1b9a70f5c2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete bill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/bill/deleteBill?id=6749ea1fbae21f1b9a70f5c2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"bill",
+						"deleteBill"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6749ea1fbae21f1b9a70f5c2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get bill by date range",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "startDate",
+							"value": "2024-11-1",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-11-30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/bill/getBillByDate",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"bill",
+						"getBillByDate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
